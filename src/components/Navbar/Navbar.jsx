@@ -16,8 +16,8 @@ export default function Navbar(props) {
 
 
                     <Link className="navbar-brand text-white fs-2 font1" to='home'>
-                        <img className='img1' src={img1} />Game Over</Link>
-                    <button className="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <img className='img1' alt='img' src={img1} />Game Over</Link>
+                    <button className="navbar-toggler bg-danger" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -30,9 +30,9 @@ export default function Navbar(props) {
                                 <NavLink className={({ isActive }) => isActive ? "nav-link active text-white font1 mx-2 fs-2" : "nav-link text-white fs-5"} to='all'>All</NavLink>
                             </li>
                             <li className="nav-item dropdown">
-                                <a className="nav-link dropdown-toggle text-white fs-5 ok" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <Link className="nav-link dropdown-toggle text-white fs-5 ok" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Platforms
-                                </a>
+                                </Link>
                                 <ul className="dropdown-menu">
                                     <li><NavLink className="dropdown-item" to='platforms/pc'>Pc</NavLink></li>
                                     <li><NavLink className="dropdown-item" to='platforms/browser'>Browser</NavLink></li>
@@ -40,9 +40,9 @@ export default function Navbar(props) {
                                 </ul>
                             </li>
                             <li className="nav-item dropdown">
-                                <a className="nav-link dropdown-toggle text-white fs-5 ok" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <Link className="nav-link dropdown-toggle text-white fs-5 ok" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Sort-By
-                                </a>
+                                </Link>
                                 <ul className="dropdown-menu">
                                     <li><NavLink className="dropdown-item" to='sort-by/release-date'>Release date</NavLink></li>
                                     <li><NavLink className="dropdown-item" to='sort-by/popularity'>Popularity</NavLink></li>
@@ -51,9 +51,9 @@ export default function Navbar(props) {
                                 </ul>
                             </li>
                             <li className="nav-item dropdown">
-                                <a className="nav-link dropdown-toggle text-white fs-5 ok" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <Link className="nav-link dropdown-toggle text-white fs-5 ok" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Categories
-                                </a>
+                                </Link>
                                 <ul className="dropdown-menu">
                                     <li><NavLink className="dropdown-item" to='categories/racing'>Racing</NavLink></li>
                                     <li><NavLink className="dropdown-item" to='categories/sports'>Sports</NavLink></li>
