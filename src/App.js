@@ -1,4 +1,4 @@
-import { Navigate, RouterProvider, createBrowserRouter, createHashRouter } from 'react-router-dom';
+import { Navigate, RouterProvider, createHashRouter } from 'react-router-dom';
 import './App.css';
 import All from './components/All/All';
 import Home from './components/Home/Home';
@@ -40,7 +40,6 @@ function App() {
   }, [])
 
   function saveUserData() {
-
     let token = localStorage.getItem("token")
     let data = jwtDecode(token)
     setUser(data)
