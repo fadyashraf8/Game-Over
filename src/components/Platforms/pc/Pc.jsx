@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 export default function Pc() {
 
@@ -46,10 +46,10 @@ export default function Pc() {
               <div className="card-body">
                 <div className='row'>
                   <div className='col-md-6 '>
-                    <a class="card-text text-white  h5">{e.title}</a>
+                    <h5 class="card-text text-white  ">{e.title}</h5>
                   </div>
                   <div className='col-md-6'>
-                    <a href={e.game_url} target='_blank' className="btn btn-primary">Play Now!</a>
+                    <Link href={e.game_url} target='_blank' className="btn btn-primary">Play Now!</Link>
                   </div>
                 </div>
               </div>

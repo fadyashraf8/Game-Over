@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 export default function DetailsGame() {
     let { id } = useParams()
@@ -48,7 +48,7 @@ export default function DetailsGame() {
                         <div class="card bg-transparent " >
                             <img src={e.thumbnail} class="card-img-top" alt="..." />
                             <div class="card-body text-center">
-                                <a href={e.game_url} target='_blank' class="btn btn-primary">Play Now!</a>
+                                <Link to={e.game_url} target='_blank' class="btn btn-primary">Play Now!</Link>
                             </div>
                         </div>
                     </div>

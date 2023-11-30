@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 export default function All() {
 
@@ -47,10 +47,10 @@ export default function All() {
                 <div className="card-body">
                   <div className='row'>
                     <div className='col-md-6 '>
-                      <a class="card-text text-white  h5">{e.title}</a>
+                      <Link class="card-text text-white  h5">{e.title}</Link>
                     </div>
                     <div className='col-md-6'>
-                      <a href={e.game_url} target='_blank' className="btn btn-primary">Play Now!</a>
+                      <Link to={e.game_url} target='_blank' className="btn btn-primary">Play Now!</Link>
                     </div>
                   </div>
                 </div>

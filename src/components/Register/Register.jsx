@@ -30,11 +30,11 @@ export default function Register() {
   async function submitForm(e) {
     e.preventDefault()
     let valid = validData()
-    if (valid.error == undefined) {
+    if (valid.error === undefined) {
       setLoading(true)
 
       let { data } = await axios.post("https://signup-signin-backend.onrender.com/user/signup", user)
-      if (data.message == "success") {
+      if (data.message === "success") {
         navigate('/login')
         setLoading(false)
       } else {
@@ -74,7 +74,7 @@ export default function Register() {
   return (
     <div className='container'>
 
-      {errorApi == "" ? "" : <div className='alert alert-danger mt-2'>{errorApi}</div>}
+      {errorApi === "" ? "" : <div className='alert alert-danger mt-2'>{errorApi}</div>}
       {errorList.length > 0 ? errorList.map((e) => <div className='alert alert-danger mt-2'>{e.message}</div>) : ""}
       <div className='row mt-5 '>
         <div className='col-md-6'>

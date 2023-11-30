@@ -28,11 +28,11 @@ export default function Login(props) {
   async function submitForm(e) {
     e.preventDefault()
     let valid = validData()
-    if (valid.error == undefined) {
+    if (valid.error === undefined) {
       setLoading(true)
 
       let { data } = await axios.post("https://signup-signin-backend.onrender.com/user/signin", user)
-      if (data.message == "success") {
+      if (data.message === "success") {
         navigate('/home')
         setLoading(false)
         localStorage.setItem("token", data.token)
@@ -68,7 +68,7 @@ export default function Login(props) {
     <>
 
       <div className='container'>
-        {errorApi == "" ? "" : <div className='alert alert-danger mt-2'>{errorApi}</div>}
+        {errorApi === "" ? "" : <div className='alert alert-danger mt-2'>{errorApi}</div>}
         {errorList.length > 0 ? errorList.map((e) => <div className='alert alert-danger mt-2'>{e.message}</div>) : ""}
         <div className='row mt-5 '>
           <div className='col-md-6'>
