@@ -7,7 +7,6 @@ export default function Login(props) {
   let { saveUserData } = props
 
   const [user, setUser] = useState({
-
     email: "",
     password: "",
   })
@@ -24,14 +23,14 @@ export default function Login(props) {
     myUser[e.target.name] = e.target.value
     setUser(myUser)
   }
-
+  
   async function submitForm(e) {
     e.preventDefault()
     let valid = validData()
     if (valid.error === undefined) {
       setLoading(true)
 
-      let { data } = await axios.post("https://signup-signin-backend.onrender.com/user/signin", user)
+      let { data } = await axios.post("https://signup-signin-backend.vercel.app/user/signin", user)
       if (data.message === "success") {
         navigate('/home')
         setLoading(false)

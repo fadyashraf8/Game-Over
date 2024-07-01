@@ -33,13 +33,15 @@ export default function Register() {
     if (valid.error === undefined) {
       setLoading(true)
 
-      let { data } = await axios.post("https://signup-signin-backend.onrender.com/user/signup", user)
+      let { data } = await axios.post("https://signup-signin-backend.vercel.app/user/signup", user)
       if (data.message === "success") {
         navigate('/login')
         setLoading(false)
+
       } else {
         setErrorApi(data.message)
         setLoading(false)
+
 
       }
 
@@ -93,6 +95,7 @@ export default function Register() {
 
             <input type="password" placeholder='Enter Your Password' className='form-control bg-dark-subtle text-dark mt-3 ' name='password' id='password' onChange={addUser} />
 
+            <p className='bg-white fs-2 rounded-5 mt-2'>Use This Password : ok123</p>
 
             {loading ? <button className='btn mt-4 btn-outline-light w-75 '>
               <i className=" fa-solid fa-spinner fa-spin fs-3"></i>
