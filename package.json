@@ -2,7 +2,7 @@
   "name": "game-over",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://fadyashraf8.github.io/Game-Over/",
+
   "dependencies": {
     "@babel/plugin-transform-private-property-in-object": "^7.23.4",
     "@fortawesome/fontawesome-free": "^6.4.2",
@@ -21,8 +21,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
