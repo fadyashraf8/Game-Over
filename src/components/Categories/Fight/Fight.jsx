@@ -17,7 +17,7 @@ export default function Fight() {
       }
     })
     setFightGames(data)
-    console.log(data);
+
   }
 
   useEffect(() => {

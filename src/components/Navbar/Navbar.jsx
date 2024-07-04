@@ -1,12 +1,15 @@
 import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import img1 from '../../images/logo.548dc5719c2345c22eef.png'
 
 export default function Navbar(props) {
 
     let { user, logOut } = props
 
+    const location = useLocation()
 
+    const { pathname } = location
+ 
 
     return (
         <div>
@@ -23,19 +26,24 @@ export default function Navbar(props) {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         {user != null ? <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <NavLink className={({ isActive }) => isActive ? "nav-link active text-white font1 mx-2 fs-2" : "nav-link text-white fs-5"}
-                                    aria-current="page" to="home">Home</NavLink>
+                                <Link className={pathname === '/home' ? "nav-link active text-white font1 mx-2 fs-2" : "nav-link text-white fs-5"}
+                                    aria-current="page" to="/home">Home</Link>
                             </li>
                             <li className="nav-item">
-                                <NavLink className={({ isActive }) => isActive ? "nav-link active text-white font1 mx-2 fs-2" : "nav-link text-white fs-5"} to='all'>All</NavLink>
+                                <NavLink className={pathname === '/all' ? "nav-link active text-white font1 mx-2 fs-2" : "nav-link text-white fs-5"} 
+                                to='/all'>All</NavLink>
                             </li>
                             <li className="nav-item dropdown">
                                 <Link className="nav-link dropdown-toggle text-white fs-5 ok" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Platforms
                                 </Link>
                                 <ul className="dropdown-menu">
-                                    <li><NavLink className="dropdown-item" to='platforms/pc'>Pc</NavLink></li>
-                                    <li><NavLink className="dropdown-item" to='platforms/browser'>Browser</NavLink></li>
+                                    <li>
+                                        <NavLink className={pathname === '/platforms/pc' ? " active bg-white text-dark font1 fs-2 dropdown-item" : "  fs-5 dropdown-item"} to='/platforms/pc'>Pc</NavLink>
+                                        </li>
+                                    <li>
+                                        <NavLink className={pathname === '/platforms/browser' ? " active bg-white text-dark font1 fs-2 dropdown-item" : "  fs-5 dropdown-item"} to='/platforms/browser'>Browser</NavLink>
+                                        </li>
 
                                 </ul>
                             </li>
@@ -44,10 +52,18 @@ export default function Navbar(props) {
                                     Sort-By
                                 </Link>
                                 <ul className="dropdown-menu">
-                                    <li><NavLink className="dropdown-item" to='sort-by/release-date'>Release date</NavLink></li>
-                                    <li><NavLink className="dropdown-item" to='sort-by/popularity'>Popularity</NavLink></li>
-                                    <li><NavLink className="dropdown-item" to='sort-by/alphbetical'>Alphbetical</NavLink></li>
-                                    <li><NavLink className="dropdown-item" to='sort-by/relevance'>Relevance</NavLink></li>
+                                    <li>
+                                        <NavLink className={pathname === '/sort-by/release-date' ? " active bg-white text-dark font1 fs-2 dropdown-item" : "  fs-5 dropdown-item"} to='/sort-by/release-date'>Release date</NavLink>
+                                        </li>
+                                    <li>
+                                        <NavLink className={pathname === '/sort-by/popularity' ? " active bg-white text-dark font1 fs-2 dropdown-item" : "  fs-5 dropdown-item"} to='/sort-by/popularity'>Popularity</NavLink>
+                                        </li>
+                                    <li>
+                                        <NavLink className={pathname === '/sort-by/alphbetical' ? " active bg-white text-dark font1 fs-2 dropdown-item" : "  fs-5 dropdown-item"} to='/sort-by/alphbetical'>Alphbetical</NavLink>
+                                        </li>
+                                    <li>
+                                        <NavLink className={pathname === '/sort-by/relevance' ? " active bg-white text-dark font1 fs-2 dropdown-item" : "  fs-5 dropdown-item"} to='/sort-by/relevance'>Relevance</NavLink>
+                                        </li>
                                 </ul>
                             </li>
                             <li className="nav-item dropdown">
@@ -55,17 +71,17 @@ export default function Navbar(props) {
                                     Categories
                                 </Link>
                                 <ul className="dropdown-menu">
-                                    <li><NavLink className="dropdown-item" to='categories/racing'>Racing</NavLink></li>
-                                    <li><NavLink className="dropdown-item" to='categories/sports'>Sports</NavLink></li>
-                                    <li><NavLink className="dropdown-item" to='categories/social'>Social</NavLink></li>
-                                    <li><NavLink className="dropdown-item" to='categories/shooter'>Shooter</NavLink></li>
-                                    <li><NavLink className="dropdown-item" to='categories/open-world'>Open World</NavLink></li>
-                                    <li><NavLink className="dropdown-item" to='categories/zombie'>Zombie</NavLink></li>
-                                    <li><NavLink className="dropdown-item" to='categories/fantasy'>Fantasy</NavLink></li>
-                                    <li><NavLink className="dropdown-item" to='categories/action-rbg'>Action-RBG</NavLink></li>
-                                    <li><NavLink className="dropdown-item" to='categories/action'>Action</NavLink></li>
-                                    <li><NavLink className="dropdown-item" to='categories/fight'>Fight</NavLink></li>
-                                    <li><NavLink className="dropdown-item" to='categories/battle-royal'>Battle Royal</NavLink></li>
+                                    <li><NavLink className={pathname === '/categories/racing' ? " active bg-white text-dark font1 fs-2 dropdown-item" : "  fs-5 dropdown-item"} to='/categories/racing'>Racing</NavLink></li>
+                                    <li><NavLink className={pathname === '/categories/sports' ? " active bg-white text-dark font1 fs-2 dropdown-item" : "  fs-5 dropdown-item"} to='/categories/sports'>Sports</NavLink></li>
+                                    <li><NavLink className={pathname === '/categories/social' ? " active bg-white text-dark font1 fs-2 dropdown-item" : "  fs-5 dropdown-item"} to='/categories/social'>Social</NavLink></li>
+                                    <li><NavLink className={pathname === '/categories/shooter' ? " active bg-white text-dark font1 fs-2 dropdown-item" : "  fs-5 dropdown-item"} to='/categories/shooter'>Shooter</NavLink></li>
+                                    <li><NavLink className={pathname === '/categories/open-world' ? " active bg-white text-dark font1 fs-2 dropdown-item" : "  fs-5 dropdown-item"} to='/categories/open-world'>Open World</NavLink></li>
+                                    <li><NavLink className={pathname === '/categories/zombie' ? " active bg-white text-dark font1 fs-2 dropdown-item" : "  fs-5 dropdown-item"} to='/categories/zombie'>Zombie</NavLink></li>
+                                    <li><NavLink className={pathname === '/categories/fantasy' ? " active bg-white text-dark font1 fs-2 dropdown-item" : "  fs-5 dropdown-item"} to='/categories/fantasy'>Fantasy</NavLink></li>
+                                    <li><NavLink className={pathname === '/categories/action-rbg' ? " active bg-white text-dark font1 fs-2 dropdown-item" : "  fs-5 dropdown-item"} to='/categories/action-rbg'>Action-RBG</NavLink></li>
+                                    <li><NavLink className={pathname === '/categories/action' ? " active bg-white text-dark font1 fs-2 dropdown-item" : "  fs-5 dropdown-item"} to='/categories/action'>Action</NavLink></li>
+                                    <li><NavLink className={pathname === '/categories/fight' ? " active bg-white text-dark font1 fs-2 dropdown-item" : "  fs-5 dropdown-item"} to='/categories/fight'>Fight</NavLink></li>
+                                    <li><NavLink className={pathname === '/categories/battle-royal' ? " active bg-white text-dark font1 fs-2 dropdown-item" : "  fs-5 dropdown-item"} to='/categories/battle-royal'>Battle Royal</NavLink></li>
 
                                 </ul>
                             </li>
@@ -89,7 +105,7 @@ export default function Navbar(props) {
 
                     </div>
                 </div>
-            </nav>
-        </div>
+            </nav >
+        </div >
     )
 }

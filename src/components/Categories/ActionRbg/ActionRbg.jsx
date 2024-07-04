@@ -16,7 +16,7 @@ export default function ActionRbg() {
       }
     })
     setRpgGames(data)
-    console.log(data);
+   
   }
 
   useEffect(() => {

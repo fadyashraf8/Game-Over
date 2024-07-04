@@ -30,21 +30,21 @@ export default function Login(props) {
     if (valid.error === undefined) {
       setLoading(true)
 
-      let { data } = await axios.post("https://signup-signin-backend.vercel.app/user/signin", user)
-      if (data.message === "success") {
-        navigate('/home')
-        setLoading(false)
-        localStorage.setItem("token", data.token)
-        saveUserData()
-      } else {
-        setErrorApi(data.message)
-        setLoading(false)
-      }
+     await axios.post("https://signup-signin-backend.vercel.app/user/signin", user)
+     .then((data)=>{
+      navigate('/home')
+      setLoading(false)
+      localStorage.setItem("token", data.data.token)
+      saveUserData()
 
+     }).catch((error)=>{
+      setErrorApi(error.response.data.error)
+      setLoading(false)
+      console.log(error.response.data.error);
+     })
     } else {
       setErrorList(valid.error.details)
       setLoading(false)
-
     }
 
   }
