@@ -18,7 +18,6 @@ export default function Action() {
       }
     })
     setActionGames(data)
-    console.log(data);
   }
 
   useEffect(() => {

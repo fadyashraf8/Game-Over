@@ -32,23 +32,31 @@ export default function Register() {
     let valid = validData()
     if (valid.error === undefined) {
       setLoading(true)
+      setErrorApi("")
 
-      let { data } = await axios.post("https://signup-signin-backend.vercel.app/user/signup", user)
-      if (data.message === "success") {
-        navigate('/login')
+      try {
+        let { data } = await axios.post("https://signup-signin-backend.vercel.app/user/signup", user)
+        if (data.message === "success") {
+          navigate('/login')
+          setLoading(false)
+        } else {
+          setErrorApi(data.message)
+          setLoading(false)
+        }
+      } catch (error) {
         setLoading(false)
-
-      } else {
-        setErrorApi(data.message)
-        setLoading(false)
-
-
+        if (error.response && error.response.data) {
+          const apiError = error.response.data.message || error.response.data.error || "An error occurred during signup."
+          setErrorApi(apiError)
+        } else {
+          setErrorApi("An error occurred. Please try again.")
+        }
+        console.error("Signup error:", error)
       }
 
     } else {
       setErrorList(valid.error.details)
       console.log(valid.error.details);
-
     }
 
   }

@@ -23,6 +23,13 @@ export default function Login(props) {
     myUser[e.target.name] = e.target.value
     setUser(myUser)
   }
+
+  function fillDemoCredentials() {
+    setUser({
+      email: "test1@gmail.com",
+      password: "ok123"
+    })
+  }
   
   async function submitForm(e) {
     e.preventDefault()
@@ -73,13 +80,31 @@ export default function Login(props) {
           <div className='col-md-6'>
             <img src={img2} className='img2' alt="" />
           </div>
-          <div className='col-md-6 d-flex flex-column justify-content-center align-items-center bg-dark'>
+          <div className='col-md-6 d-flex flex-column justify-content-center align-items-center bg-dark p-4 rounded-3'>
             <h2 className='text-white font1'>Login To Our Website</h2>
+            
+            <div 
+              className='card bg-secondary bg-opacity-25 text-white border border-secondary-subtle rounded-3 p-3 mt-3 w-100 text-start'
+              style={{ cursor: 'pointer', transition: 'all 0.3s ease' }}
+              onClick={fillDemoCredentials}
+              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.15)'}
+              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.05)'}
+            >
+              <div className='d-flex justify-content-between align-items-center mb-1'>
+                <span className='fw-semibold text-info'><i className="fa-solid fa-circle-info me-2"></i>Quick Login:</span>
+                <span className='badge bg-info text-dark font-monospace' style={{ fontSize: '0.75rem' }}>Click to autofill</span>
+              </div>
+              <div className='small text-white-50 mt-1'>
+                Email: <span className='text-white font-monospace ms-1'>test1@gmail.com</span><br/>
+                Password: <span className='text-white font-monospace ms-1'>ok123</span>
+              </div>
+            </div>
+
             <form className='w-100 text-center' onSubmit={submitForm}>
 
-              <input type="text" placeholder='Enter Your Email' className='form-control  text-dark mt-3 bg-dark-subtle' name='email' id='email' onChange={addUser} />
+              <input type="text" placeholder='test1@gmail.com' value={user.email} className='form-control text-dark mt-3 bg-dark-subtle' name='email' id='email' onChange={addUser} />
 
-              <input type="password" placeholder='Enter Your Password' className='form-control bg-dark-subtle text-dark mt-3 ' name='password' id='password' onChange={addUser} />
+              <input type="password" placeholder='ok123' value={user.password} className='form-control bg-dark-subtle text-dark mt-3' name='password' id='password' onChange={addUser} />
 
 
 
